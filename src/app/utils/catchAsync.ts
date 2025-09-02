@@ -11,7 +11,6 @@ type AsyncHanlder = (
 export const catchAsync = (fn: AsyncHanlder) => {
   return (req: Request, res: Response, next: NextFunction) => {
     Promise.resolve(fn(req, res, next)).catch((err) => {
-      console.log(err);
       next(err);
     });
   };

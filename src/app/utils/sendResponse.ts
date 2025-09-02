@@ -14,13 +14,13 @@ interface TResponse<T> {
   meta?: TMeta;
 }
 
-export const sendResponse = <T>(res: Response, data:TResponse<T>) => {
-    const {statusCode, success, message, data: dataResponse, meta} = data
-    res.status(statusCode).json({
-        success,
-        message,
-        data: dataResponse,
-        meta
-    })
-
+export const sendResponse = <T>(res: Response, data: TResponse<T>) => {
+  const { statusCode, success, message, data: dataResponse, meta } = data;
+  res.status(statusCode).json({
+    statusCode,
+    success,
+    message,
+    data: dataResponse,
+    meta,
+  });
 };
